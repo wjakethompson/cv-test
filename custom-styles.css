@@ -1,0 +1,15 @@
+@page :first {
+  #aside{
+    position: relative; /* for disclaimer */
+    height: var(--content-area-height);
+  }
+  
+  .aside{
+    width: var(--sidebar-width);
+    padding: 0.6in var(--sidebar-horizontal-padding);
+    font-size: 0.8rem;
+    float: right;
+    position: absolute;
+    right: 0;
+  }
+}

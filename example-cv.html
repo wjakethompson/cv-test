@@ -7,15 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Lijia Yu" />
-    <meta name="date" content="2019-11-10" />
+    <meta name="date" content="2021-04-29" />
     <title>Lijia Yu’s resume</title>
 
+    
+        <script src="example-cv_files/header-attrs-2.7.12/header-attrs.js"></script>
         <link href="example-cv_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="example-cv_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-    <link href="example-cv_files/paged-0.5.1/css/resume.css" rel="stylesheet" />
-    <script src="example-cv_files/paged-0.5.1/js/config.js"></script>
-    <script src="example-cv_files/paged-0.5.1/js/paged.js"></script>
-    <script src="example-cv_files/paged-0.5.1/js/hooks.js"></script>
+        <link href="example-cv_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+        <link href="example-cv_files/paged-0.14/css/resume.css" rel="stylesheet" />
+        <script src="example-cv_files/paged-0.14/js/config.js"></script>
+        <script src="example-cv_files/paged-0.14/js/paged.js"></script>
+        <script src="example-cv_files/paged-0.14/js/hooks.js"></script>
     
         <link rel="stylesheet" href="custom-styles.css" type="text/css" />
     
@@ -24,7 +26,7 @@
 
 <div id="aside" class="section level1">
 <h1>Aside</h1>
-<p><img src="https://avatars1.githubusercontent.com/u/895125?s=400&amp;v=4" alt="Lijia Yu" style="width:80.0%" /></p>
+<p><img src="https://avatars1.githubusercontent.com/u/895125?s=400&amp;v=4" style="width:80.0%" alt="Lijia Yu" /></p>
 <div id="contact" class="section level2">
 <h2>Contact Info</h2>
 <ul>
@@ -45,7 +47,7 @@
 <div id="disclaimer" class="section level2">
 <h2>Disclaimer</h2>
 <p>This resume was made with the R package <a href="https://github.com/rstudio/pagedown"><strong>pagedown</strong></a>.</p>
-<p>Last updated on 2019-11-10.</p>
+<p>Last updated on 2021-04-29.</p>
 </div>
 </div>
 <div id="main" class="section level1">
@@ -201,8 +203,11 @@ interested in my background and skills, please feel free to contact me.</p>
     if (i === 0 && el.id === 'title') continue;
     el.className += ' main-block';
     if (el.dataset['concise']) el.className += ' concise';
-    s = el.dataset['icon'] || 'bookmark';
-    el.firstElementChild.insertBefore(create_el('i', 'fa fa-' + s), el.firstElementChild.firstChild);
+    // if there is no icon, add an icon:
+    if (el.firstElementChild.firstChild && el.firstElementChild.firstChild.nodeName !== 'I') {
+      s = el.dataset['icon'] || 'bookmark';
+      el.firstElementChild.insertBefore(create_el('i', 'fa fa-' + s), el.firstElementChild.firstChild);
+    }
   }
 
   // tweak class names of blocks in sections
